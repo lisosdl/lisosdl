@@ -14,16 +14,21 @@ const member = {
 	* @return Boolean
 	*/
 	join : async function (memId, memPw) {
-		const hash = await bcrypt.hash(memPw, 10);
+			try {
+				const hash = await bcrypt.hash(memPw, 10);
+				
+				const sql = "INSERT INTO member (memId, memPw) VALUES (:memId, :memPw)";
+				
+				await sequelize.query(sql, {
+					replacements : { memId, memPw : hash },
+					type : QueryTypes.INSERT,
+				});
+				return true;
+			} catch (err) {
+				console.error(err);
+				return false;
+			}
 		
-		const sql = "INSERT INTO member (memId, memPw) VALUES (:memId, :memPw)";
-		
-		const result = await sequelize.query(sql, {
-			replacements : { memId, memPw : hash },
-			type : QueryTypes.INSERT,
-		});
-		
-		console.log(result);
 	},
 	/**
 	* 로그인
