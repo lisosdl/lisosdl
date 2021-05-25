@@ -3,13 +3,17 @@
 <head>
 	<meta charset='urf-8'>
 	<link rel='stylesheet' type='text/css' href='/css/style.css'>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	<script src='/js/jquery-3.6.0.min.js'></script>
 	<script src='/js/common.js'></script>
 	{% block script %}
 	{% endblock %}
 	<title>방정환 이력서</title>
 </head>
-<body>
+<body{% if addClass %} class='{{ addClass }}' {% endif %}>
+	{% block top %}
+	
+	{% endblock %}
 	{% block content %}
 	
 	{% endblock %}
