@@ -1,0 +1,19 @@
+{
+  "name": "git_node",
+  "version": "1.0.0",
+  "description": "이력서",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisosdl/lisosdl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisosdl/lisosdl/issues"
+  },
+  "homepage": "https://github.com/lisosdl/lisosdl#readme"
+}
