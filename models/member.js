@@ -1,4 +1,4 @@
-const { sequelize, Sequelize : { QeryTypes } } = require('./index');
+const { sequelize, Sequelize : { QueryTypes } } = require('./index');
 const bcrypt = require('bcrypt');
 /**
 * member Model
@@ -50,7 +50,7 @@ const member = {
 		}
 		
 		// 회원이 존재하면 비밀번호 일치 여부 체크
-		const match = await bcrypt.compare(memPw, reows[0].memPw);
+		const match = await bcrypt.compare(memPw, rows[0].memPw);
 		if (match) {
 			req.session.memId = rows[0].memId;
 			return true;
