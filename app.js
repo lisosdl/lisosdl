@@ -6,6 +6,10 @@ const dotenv = require('dotenv');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const { sequelize } = require('./models');
+
+// 라우터
+const memberRouter = require('./routes/member');
 
 dotenv.config();
 
@@ -17,11 +21,21 @@ nunjucks.configure('views', {
 	watch : true,
 });
 
+// db 연결
+sequelize.sync({ force : false })
+			.then(() => {
+				console.log('데이터베이스 연결 성공');
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+
 app.use(morgan('dev'));
 app.use(methodOverride("_method"));
 // bodyparser
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
@@ -33,6 +47,9 @@ app.use(session({
 	},
 	name : "lisosdlss",
 }));
+
+// 라우터 등록
+app.use('/member', memberRouter);
 
 // 없는 페이지 처리
 app.use((req, res, next) => {
