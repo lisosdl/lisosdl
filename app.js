@@ -26,8 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
 	resave : false,
-	saveUninitalized : false,
-	
+	saveUninitialized : false,
+	cookie : {
+		httpOnly : true,
+		secure : false,
+	},
+	name : "lisosdlss",
 }));
 
 // 없는 페이지 처리
