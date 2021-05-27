@@ -33,7 +33,7 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 .btn1:hover { background-color: #010e24; }
 
 /** 제목 */
-.main_title { font-size: 17px; font-weight: 700; margin-bottom: 20px; }
+.main_title { font-size: 17px; font-weight: 700; margin-bottom: 20px; text-align: center; }
 
 /** 레이아웃 기본 사이즈 */
 .layout_width { width: 1200px; margin: 0 auto !important; }
