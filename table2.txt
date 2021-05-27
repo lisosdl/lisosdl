@@ -37,6 +37,7 @@
   jhSalary: [ '', '' ],
   jhWork: [ '', '' ],
   
+  
   인턴대외활동 - intern
   internType: [ '', '' ],
   internCompany: [ '', '' ],
