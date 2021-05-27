@@ -204,31 +204,31 @@
 
 <!-- 어학 추가 템플릿 -->
 <script type='text/html' id='template_language'>
-		<div class='rows'>
-			<div class='remove'><i class='xi-close'></i></div>
-					<div class='select_box w115'>
-						<select name='languageType'>
-							<option value=''>구분</option>
-							<option value='회화능력'>회화능력</option>
-							<option value='공인시험'>공인시험</option>
-						</select>
-					</div>
-					
-					<div class='input_box'>
-						<div class='guide_tit'>외국어명</div>
-						<input type='text' name='languageName'>
-					</div>
-					
-					<div class='select_box'>
-						<select name='languageAbility'>
-							<option value=''>회화능력</option>
-							<option value='일상회화 가능'>일상회화 가능</option>
-							<option value='비지니스 회화가능'>비지니스 회화가능</option>
-							<option value='원어민 수준'>원어민 수준</option>
-						</select>
-					</div>
-				</div>
-				<!--// rows -->
+	<div class='rows'>
+		<div class='remove'><i class='xi-close'></i></div>
+		<div class='select_box w115'>
+			<select name='languageType'>
+				<option value=''>구분</option>
+				<option value='회화능력'>회화능력</option>
+				<option value='공인시험'>공인시험</option>
+			</select>
+		</div>
+			
+			<div class='input_box'>
+				<div class='guide_tit'>외국어명</div>
+				<input type='text' name='languageName'>
+			</div>
+				
+		<div class='select_box'>
+			<select name='languageAbility'>
+				<option value=''>회화능력</option>
+				<option value='일상회화 가능'>일상회화 가능</option>
+				<option value='비지니스 회화가능'>비지니스 회화가능</option>
+				<option value='원어민 수준'>원어민 수준</option>
+			</select>
+		</div>
+	</div>
+			<!--// rows -->
 </script>
 
 <!-- 자기소개 추가 템플릿 -->
@@ -237,5 +237,24 @@
 		<div class='remove'><i class='xi-close'></i></div>
 		<input type='text' name='introductionTitle' placeholder='항목 제목을 입력하세요.'>
 		<textarea name='introduction' class='intro' placeholder='해당내용을 입력하세요.'></textarea>
+	</div>
+</script>
+
+<!-- 포트폴리오 추가 템플릿 -->
+<script type='text/html' id='template_portpolio'>
+	<div class='rows'>
+		<div class='remove'><i class='xi-close'></i></div>
+		<div class='input_box w386 mr10'>
+			<div class='guide_tit'>포트폴리오 제목</div>
+			<input type='text' name='portpolioTitle'>
+		</div>
+		<div class='input_box w456'>
+			<div class='guide_tit'>포트폴리오 URL</div>
+			<input type='text' name='portpolioURL'>
+		</div>
+		<div class='input_box wp100'>
+			<div class='guide_tit'>포트폴리오 설명</div>
+			<textarea name='portpolioDesc' placeholder='포트폴리오에 대한 간략한 설명 입력.'></textarea>
+		</div>
 	</div>
 </script>
