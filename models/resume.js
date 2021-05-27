@@ -17,11 +17,12 @@ const resume = {
 				
 			}
 			/** 취업우대 • 병역 선택 체크 E */
+			
 			/** basicInfo 처리 S */
 			if (params.benefit instanceof Array) {
 				params.benefit = params.benefit.join("||");
 			}
-			const sql = `UPDATE basicinfo SET
+			let sql = `UPDATE basicinfo SET
 										resumeTitle = :resumeTitle,
 										name = :name,
 										birthDate = :birthDate,
@@ -68,7 +69,6 @@ const resume = {
 			await sequelize.query(sql, {
 				type : QueryTypes.DELETE,
 			});
-			console.log(result);
 			if (params.items && params.items.indexOf('학력') != -1 && params.schoolType) {
 				if (!(params.schoolType instanceof Array)) {
 					params.schoolType = [params.schoolType];
@@ -230,7 +230,7 @@ const resume = {
 					params.awardName = [params.awardName];
 					params.awardCompany = [params.awardCompany];
 					params.awardYear = [params.awardYear];
-					params.awardDesc = [aprams.awardDesc];
+					params.awardDesc = [params.awardDesc];
 				}
 				
 				params.awardName.forEach(async (name, index) => {
@@ -284,8 +284,8 @@ const resume = {
 			}
 			/** overseas 해외경험 처리 E */
 			
-			/** lenguage 어학 처리 S */
-			sql = 'TRUNCATE lenguage';
+			/** language 어학 처리 S */
+			sql = 'TRUNCATE language';
 			await sequelize.query(sql, { type : QueryTypes.DELETE });
 			if (params.items && params.items.indexOf('어학') != -1) {
 				if (!(params.languageType instanceof Array)) {
@@ -313,8 +313,8 @@ const resume = {
 			}
 			/** lenguage 어학 처리 E */
 			
-			/** protpolio 포트폴리오 처리 S */
-			sql = 'TRUNCATE protpolio';
+			/** portpolio 포트폴리오 처리 S */
+			sql = 'TRUNCATE portpolio';
 			await sequelize.query(sql, { type : QueryTypes.DELETE });
 			if (params.items && params.items.indexOf('포트폴리오') != -1) {
 				if (!(params.portpolioTitle instanceof Array)) {
@@ -340,7 +340,7 @@ const resume = {
 					});
 				});
 			}
-			/** protpolio 포트폴리오 처리 E */
+			/** portpolio 포트폴리오 처리 E */
 			
 			/** introduction 자기소개서 처리 S */
 			sql = 'TRUNCATE introduction';
@@ -348,7 +348,7 @@ const resume = {
 			if (params.items && params.items.indexOf('자기소개서') != -1) {
 				if (!(params.introductionTitle instanceof Array)) {
 					params.introductionTitle = [params.introductionTitle];
-					parmas.introduction = [params.introduction];
+					params.introduction = [params.introduction];
 				}
 				
 				params.introductionTitle.forEach(async (title, index) => {
