@@ -1,11 +1,10 @@
 const { alert } = require('../lib/common');
-/**
-* 회원 가입 유효성 검사
-*
-*/
 
+/**
+* 회원 가입 유효성 검사 
+*/
 module.exports.joinValidator = (req, res, next) => {
-	// 필수 입력항목 체크
+	// 필수 입력항목 체크 
 	if (!req.body.memId) {
 		return alert("아이디를 입력하세요.", res);
 	}
