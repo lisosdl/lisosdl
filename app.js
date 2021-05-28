@@ -47,7 +47,7 @@ app.use(session({
 		httpOnly : true,
 		secure : false,
 	},
-	name : 'yhsession',
+	name : 'lisosdlss',
 }));
 
 app.use(loginSession);
