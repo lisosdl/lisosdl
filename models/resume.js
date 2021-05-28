@@ -311,24 +311,24 @@ const resume = {
 			}
 			// language 어학 처리 E 
 			
-			// portpolio 처리 S
-			sql = "TRUNCATE portpolio";
+			// portfolio 처리 S
+			sql = "TRUNCATE portfolio";
 			await sequelize.query(sql, { type : QueryTypes.DELETE });
 			if (params.items && params.items.indexOf('포트폴리오') != -1) {
-				if (!(params.portpolioTitle instanceof Array)) {
-					params.portpolioTitle = [params.portpolioTitle];
-					params.portpolioUrl = [params.portpolioUrl];
-					params.portpolioDesc = [params.portpolioDesc];
+				if (!(params.portfolioTitle instanceof Array)) {
+					params.portfolioTitle = [params.portfolioTitle];
+					params.portfolioUrl = [params.portfolioUrl];
+					params.portfolioDesc = [params.portfolioDesc];
 				}
 				
-				params.portpolioTitle.forEach(async (title, index) => {
-					const sql = `INSERT INTO portpolio (title, url, description) 
+				params.portfolioTitle.forEach(async (title, index) => {
+					const sql = `INSERT INTO portfolio (title, url, description) 
 											VALUES (:title, :url, :description)`;
 					
 					const replacements = {
 							title : title,
-							url : params.portpolioUrl[index],
-							description : params.portpolioDesc[index],
+							url : params.portfolioUrl[index],
+							description : params.portfolioDesc[index],
 					};
 					
 					await sequelize.query(sql, {
@@ -337,7 +337,7 @@ const resume = {
 					});
 				});
 			}
-			// portpolio 처리 E 
+			// portfolio 처리 E 
 			
 			// introduction 자기소개 S 
 			sql = 'TRUNCATE introduction';
@@ -384,7 +384,8 @@ const resume = {
 			'language',
 			'license',
 			'overseas',
-			'portpolio',
+			'portfolio',
+			'school',
 		];
 		
 		const data = {};
@@ -411,7 +412,7 @@ const resume = {
 		} catch (err) {
 			return {};
 		}
-		console.log(data);
+		
 		return data;
 	},
 };
