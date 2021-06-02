@@ -52,9 +52,12 @@ const resume = {
 										  benefit = :benefit,
 										  handicapLevel = :handicapLevel,
 										  military = :military,
+<<<<<<< HEAD
 										  militaryStartDate = :militaryStartDate,
 										  militaryEndDate = :militaryEndDate,
 										  militaryRank = :militaryRank,
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 										  negotiableSalary = :negotiableSalary`;
 				let replacements = {
 					resumeTitle : params.resumeTitle,
@@ -72,9 +75,12 @@ const resume = {
 					benefit : params.benefit || "",
 					handicapLevel : params.handicapLevel,
 					military : params.military,
+<<<<<<< HEAD
 					militaryStartDate : params.militaryStartDate,
 					militaryEndDate : params.militaryEndDate,
 					militaryRank : params.militaryRank,
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 					negotiableSalary : params.negotiableSalary || 0,
 				};
 				
@@ -101,6 +107,7 @@ const resume = {
 					params.schoolScore = [params.schoolScore];
 					params.schoolGradeTotal = [params.schoolGradeTotal];
 				}
+<<<<<<< HEAD
 		
 				params.schoolType.forEach(async (type, index) => {				
 						const sql = `INSERT INTO school (type, name, startDate, endDate, status, transfer, major, score, gradeTotal)
@@ -120,6 +127,15 @@ const resume = {
 
 						await sequelize.query(sql, {
 							replacements,
+=======
+				
+				params.schoolType.forEach(async (type, index) => {
+						name = params.schoolName[index];
+						
+						const sql = "INSERT INTO school (type, name) VALUES (?, ?)";
+						await sequelize.query(sql, {
+							replacements : [type, name],
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 							type : QueryTypes.INSERT,
 						});
 				});
@@ -377,7 +393,7 @@ const resume = {
 			// introduction 자기소개 S 
 			sql = 'TRUNCATE introduction';
 			await sequelize.query(sql, { type : QueryTypes.DELETE });
-			if (params.items && params.items.indexOf('자기소개서') != -1) {
+			if (params.items && params.items.indexOf('자기소개') != -1) {
 				if (!(params.introductionTitle instanceof Array)) {
 					params.introductionTitle = [params.introductionTitle];
 					params.introduction = [params.introduction];
@@ -439,6 +455,7 @@ const resume = {
 				if (table == 'basicinfo') { // 기본 인적사항 -> 레코드 1개
 					data[table] = rows[0];
 					data[table].benefit = data[table].benefit?data[table].benefit.split("||"):[];
+<<<<<<< HEAD
 				
 					let age = 0, birthYear = 0;
 					if (data[table].birthDate) {
@@ -482,6 +499,10 @@ const resume = {
 						}
 					});
 					
+=======
+					
+				} else { // 나머지는 레코드 여러개 
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 					data[table] = rows;
 				}
 			}
@@ -489,6 +510,7 @@ const resume = {
 			return {};
 		}
 		
+<<<<<<< HEAD
 		/* 프로필 이미지 */
 		try {
 			await fs.access(path.join(__dirname, "../public/profile/profile"), contants.F_OK);
@@ -545,6 +567,10 @@ const resume = {
 		
 		return { year, month, str };
 	}
+=======
+		return data;
+	},
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 };
 
 module.exports = resume;

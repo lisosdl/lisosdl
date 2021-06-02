@@ -49,6 +49,7 @@ function getResume()
 						}
 					}
 				}
+<<<<<<< HEAD
 				// basicInfo select 부분 처리 
 				if (res.basicinfo.handicapLevel) {
 					$("select[name='handicapLevel']").val(res.basicinfo.handicapLevel).change();
@@ -66,6 +67,8 @@ function getResume()
 				}
 				
 				
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 			} // endif
 			/* basicinfo */
 			
@@ -106,19 +109,26 @@ function getResume()
 						type = "학력";
 						break;
 				}
+<<<<<<< HEAD
 		
+=======
+				
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 				// $target - form_html
 				$target = $("section." + table + " .form_html");
 				addForm(type, $target, res[table]);
 			} // endfor
 			/** 나머지 테이블 처리 */
 			
+<<<<<<< HEAD
 			/** 이미지 처리 */
 			if (res.profile) {
 				$(".photo_upload").html( `<img src='${res.profile}'>`);
 				$(".photo_upload").parent().append("<i class='xi-close photo_remove'></i>");
 			}
 			
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 		},
 		error : function (err) {
 			console.error(err);
@@ -168,13 +178,23 @@ function addForm(type, target, list)
 		
 	if (template) {
 		let html = $("#template_" + template).html();
+<<<<<<< HEAD
 							
+=======
+					
+		if (target.length > 0) {
+			const no = new Date().getTime();
+			html = html.replace(/<%=no%>/g, no);
+		}
+		
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 		if (list) { // 데이터가 있으면 갯수만큼 추가 
 			if (list.length > 0) {
 				$("section." + template).removeClass("dn");
 				$(".floating_box ." + template).prop("checked", true);
 			}
 			
+<<<<<<< HEAD
 			list.forEach((data) => {
 				// 데이터를 완성 처리 
 				let html2 = html;
@@ -182,18 +202,30 @@ function addForm(type, target, list)
 				
 				$tplHtml = $(html2);
 				const selector = ["input[type='text']", "textarea", "select", "input[type='hidden']", "input[type='checkbox']"];
+=======
+			
+			list.forEach((data) => {
+				// 데이터를 완성 처리 
+				$tplHtml = $(html);
+				const selector = ["input[type='text']", "textarea", "select"];
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 				selector.forEach((selector) => {
 					$texts = $tplHtml.find(selector);
 					$.each($texts, function() {
 						const name = $(this).attr("name").toLowerCase();
 						for(key in data) {
 							let keyName = key.toLowerCase();
+<<<<<<< HEAD
 							if (keyName == 'description') keyName = 'desc';
+=======
+							if (keyName == 'description') keyname = 'desc';
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 							
 							if (name.indexOf(keyName) != -1) {
 								// 일치하는 name이 있는 경우 
 								$(this).val(data[key]);
 								
+<<<<<<< HEAD
 								switch(selector) {
 									case "select" :
 										// 일치하는 name이 있는 경우 
@@ -214,18 +246,28 @@ function addForm(type, target, list)
 									default : 
 										// 일치하는 name이 있는 경우 
 										$(this).val(data[key]);
+=======
+								if (selector == 'select') {
+									$(this).change();
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 								}
 								break;
 							}
 						}
 					});
 				});
+<<<<<<< HEAD
 							
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 				
 				target.append($tplHtml);
 			});
 		} else { // DB 에 데이터 없는 경우는 1개만 추가 
+<<<<<<< HEAD
 			html = html.replace(/<%=no%>/g, new Date().getTime());
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 			target.append(html);
 		}
 	} 

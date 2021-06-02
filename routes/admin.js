@@ -30,6 +30,7 @@ router.route("/profile")
 		
 		return reload(res, "parent");
 	});
+<<<<<<< HEAD
 	
 /** 이력서 이미지 삭제 */
 router.get("/remove_photo", async (req, res, next) => {
@@ -40,5 +41,7 @@ router.get("/remove_photo", async (req, res, next) => {
 	
 	return res.send("0");
 });	
+=======
+>>>>>>> 1e65d738bc7af703afef0a2fb1b85966c175457b
 
 module.exports = router;
