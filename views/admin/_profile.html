@@ -1,4 +1,3 @@
-
 	<section class='box resume_title'>
 		<input type='text' name='resumeTitle' placeholder='기업에게 나에 대해 알려줍시다. 강점, 목표, 관심분야도 좋아요.'>
 	</section>
@@ -51,7 +50,7 @@
 	</section>	
 	
 	<!-- 학력 S -->
-	<section class='section school_history dn'>
+	<section class='section school_history school dn'>
 		<div class='tit'>학력</div>
 		<div class='form_inner'>
 			<div class='form_html'></div>
@@ -64,7 +63,7 @@
 	<!-- 학력 E -->
 	
 	<!-- 경력 S -->
-	<section class='section job_history dn'>
+	<section class='section job_history jobhistory dn'>
 		<div class='tit'>경력</div>
 		<div class='form_inner'>
 			<div class='form_html'></div>
@@ -147,9 +146,7 @@
 	<section class='section language dn'>
 		<div class='tit'>어학</div>
 		<div class='form_inner'>
-			<div class='form_html'>
-				
-			</div>
+			<div class='form_html'></div>
 			<div class='add_form' data-type='어학'>
 				<i class='xi-plus-circle-o'></i>
 				어학 추가
@@ -159,7 +156,7 @@
 	<!-- 어학 E -->
 	
 	<!-- 포트폴리오 S -->
-	<section class='section portpolio dn'>
+	<section class='section portfolio dn'>
 		<div class='tit'>포트폴리오</div>
 		<div class='form_inner'>
 			<div class='form_html'>
@@ -167,7 +164,7 @@
 			</div>
 			<div class='add_form' data-type='포트폴리오'>
 				<i class='xi-plus-circle-o'></i>
-				포트폴리오
+				포트폴리오 추가
 			</div>
 		</div>
 	</section>
@@ -198,13 +195,13 @@
 				<label for='benefit5'>병역</label>
 			</div>
 		</div>
-		
+		<!--// inner2 -->
 		<div class='additional_select dn'>
 			<dl class='handicap dn'>
 				<dt>장애</dt>
 				<dd>
 					<select name='handicapLevel'>
-						<option value=''>장애등급</option>
+						<option value=''>장애 등급</option>
 						<option value='1급'>1급</option>
 						<option value='2급'>2급</option>
 						<option value='3급'>3급</option>
@@ -225,6 +222,13 @@
 						<option value='면제'>면제</option>
 						<option value='해당없음'>해당없음</option>
 					</select>
+					
+					<div class='add_info dn'>
+						<input type='text' name='militaryStartDate' placeholder='입대일'>
+						<input type='text' name='militaryEndDate' placeholder='제대일'>
+						
+						<input type='text' name='militaryRank' placeholder='군별/제대 계급'>
+					</div>
 				</dd>
 			</dl>
 		</div>
