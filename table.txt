@@ -1,15 +1,19 @@
-member
+member 
+
 CREATE TABLE `member` (
 	`memId` VARCHAR(20) NOT NULL DEFAULT '' COLLATE 'utf8_general_ci',
-	`memPw` VARCHAR(70) NOT NULL COLLATE 'utf8_general_ci',
-	`isAdmin` TINYINT(1) NULL DEFAULT '0' COMMENT '1-관리자, 0-일반',
+	`memPw` VARCHAR(65) NOT NULL COLLATE 'utf8_general_ci',
+	`isAdmin` TINYINT(1) NULL DEFAULT '0' COMMENT '1 - 관리자, 0 - 일반',
 	PRIMARY KEY (`memId`) USING BTREE
 )
 COLLATE='utf8_general_ci'
-ENGINE=InnoDB
+ENGINE=InnoDB 
 ;
 
-basicInfo
+
+
+basicinfo
+
 CREATE TABLE `basicinfo` (
 	`resumeTitle` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
@@ -26,6 +30,9 @@ CREATE TABLE `basicinfo` (
 	`benefit` VARCHAR(150) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`handicapLevel` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`military` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`militaryStartDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`militaryEndDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`militaryRank` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`negotiableSalary` TINYINT(1) NULL DEFAULT '0'
 )
 COLLATE='utf8_general_ci'
@@ -33,17 +40,27 @@ ENGINE=InnoDB
 ;
 
 school
+
 CREATE TABLE `school` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`type` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
 	`name` VARCHAR(60) NOT NULL COLLATE 'utf8_general_ci',
+	`startDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`endDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`status` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`transfer` TINYINT(1) NULL DEFAULT '0',
+	`major` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`score` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`gradeTotal` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
-jobHistory
+
+jobhistory
+
 CREATE TABLE `jobhistory` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`company` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
@@ -53,7 +70,7 @@ CREATE TABLE `jobhistory` (
 	`position` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`task` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`salary` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`work` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`work` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`inOffice` TINYINT(1) NULL DEFAULT '0',
 	PRIMARY KEY (`idx`) USING BTREE
 )
@@ -61,35 +78,41 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 intern
+
 CREATE TABLE `intern` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`type` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`company` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`startDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`endDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`description` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`description` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 education
+
 CREATE TABLE `education` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`company` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`startDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`endDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`description` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`description` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 license
+
 CREATE TABLE `license` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
@@ -101,33 +124,38 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 award
 CREATE TABLE `award` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`company` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`year` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`description` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`description` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 overseas
+
 CREATE TABLE `overseas` (
-	`dix` INT(11) NOT NULL AUTO_INCREMENT,
+	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`startDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`endDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`description` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	PRIMARY KEY (`dix`) USING BTREE
+	`description` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
-language
+
+language 
+
 CREATE TABLE `language` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`type` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
@@ -139,23 +167,27 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 portfolio
+
 CREATE TABLE `portfolio` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`title` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`url` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`description` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`description` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+
 introduction
+
 CREATE TABLE `introduction` (
 	`idx` INT(11) NOT NULL AUTO_INCREMENT,
 	`title` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`introduction` TEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`introduction` TEXT(65535) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`idx`) USING BTREE
 )
 COLLATE='utf8_general_ci'
